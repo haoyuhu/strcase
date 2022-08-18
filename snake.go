@@ -95,7 +95,8 @@ func ToScreamingDelimited(s string, delimiter uint8, ignore string, screaming bo
 						}
 					}
 					n.WriteByte(v)
-					if vIsLow || vIsNum || nextIsNum {
+					// exclude v1, v2, ..., vk
+					if vIsLow || vIsNum /* || nextIsNum */ {
 						n.WriteByte(delimiter)
 					}
 					continue
